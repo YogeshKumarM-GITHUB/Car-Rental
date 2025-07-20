@@ -43,6 +43,15 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                <div>
+                    <hr />
+                    <p>© {new Date().getFullYear()} Brand. All rights reserved.</p>
+                    <div className='float-left md:float-right flex flex-col md:flex-row items-center gap-2 mt-2 text-gray-600'>
+                        <p>Privacy |</p>
+                        <p>Terms |</p>
+                        <p>Cookies </p>
+                    </div>
+                </div>
             </div>
         </div>
     )
