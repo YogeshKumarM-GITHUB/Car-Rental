@@ -1,7 +1,9 @@
+import CarLists from "../Components/CarLists";
+
 const Cars=()=>{
     return(
         <div>
-            Cars Page
+            <CarLists/>
         </div>
     )
 }

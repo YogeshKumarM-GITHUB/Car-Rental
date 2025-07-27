@@ -4,8 +4,8 @@ const MenuIcons = () => {
     return (
         <>
             <NavLink to='/'>Home</NavLink>
-            <NavLink to='/'>Cars</NavLink>
-            <NavLink to='/'>My Bookings</NavLink>
+            <NavLink to='/cars'>Cars</NavLink>
+            <NavLink to='/my-bookings'>My Bookings</NavLink>
             <NavLink to='/'>
                 List cars
             </NavLink>

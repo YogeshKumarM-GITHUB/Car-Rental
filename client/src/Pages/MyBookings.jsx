@@ -1,7 +1,9 @@
+import MyBookingsList from '../Components/MyBookingsList'
+
 const MyBookings=()=>{
     return(
         <div>
-            My Bookings Page
+            <MyBookingsList/>
         </div>
     )
 }
