@@ -71,5 +71,30 @@ const GetListOfCars=async(req,res)=>{
     }
 }
 
+const GetCarById=async(req,res)=>{
+    try{
+        const {_id}=req.params;
+       // console.log(_id)
+        const Car=await AddCar.findById(_id);
+        if(Car){
+            res.status(200).json({
+                success:true,
+                message:"Data feteched successfully",
+                data:Car
+            })
+        }else{
+            res.status(400).json({
+                success:false,
+                message:"Internal server error"
+            })
+        }
 
-module.exports = { AddCarInDB,GetListOfCars };
+    }catch(error){
+        res.status(400).json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+module.exports = { AddCarInDB,GetListOfCars,GetCarById };

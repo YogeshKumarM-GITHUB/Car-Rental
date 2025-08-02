@@ -18,8 +18,14 @@ export const carsSlice = createApi({
                 url:'GetCars',
                 method:'Get'
              })
+        }),
+         getCarById:builder.query({
+             query:(_id)=>({
+                url:`GetCarById/${_id}`,
+                method:'Get'
+             })
         })
     })
 })
 
-export const { useAddCarMutation,useGetCarQuery } = carsSlice;
+export const { useAddCarMutation,useGetCarQuery,useGetCarByIdQuery } = carsSlice;

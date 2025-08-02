@@ -8,21 +8,41 @@ const Addcar = () => {
     const [selectedTransmission, setselectedTransmission] = useState('');
     const [fuelType, setfuelType] = useState('');
     const[location,setlocation]=useState('');
+    const InitialState={
+        UserProfile: '',
+        Brand: '',
+        Model: '',
+        Year: '',
+        DailyPrice:0,
+        Category: '',
+        Transmission: '',
+        FuelType: '',
+        SeatingCapacity: '',
+        Location: '',
+        Descrption: '',
+    }
+
+    const[carData,setcarData]=useState(InitialState)
+
 
     const handleChange = (e) => {
         setSelectedCategory(e.target.value);
+        setcarData({...carData,Category:e.target.value});
     }
 
     const handleTransmission = (e) => {
         setselectedTransmission(e.target.value);
+        setcarData({...carData,Transmission:e.target.value});
     }
 
     const handlefuelType = (e) => {
         setfuelType(e.target.value);
+        setcarData({...carData,FuelType:e.target.value})
     }
 
     const handlelocation=(e)=>{
         setlocation(e.target.value);
+        setcarData({...carData,Location:e.target.value});
     }
 
     const Category = [
@@ -56,6 +76,12 @@ const Addcar = () => {
     const handleClick = () => {
         uploadImage.current.click();
         setImage(e)
+        
+    }
+
+    const handleData=(e)=>{
+        const {name,value}=e.target;
+        setcarData({...carData,[name]:value})
     }
 
     return (
@@ -66,7 +92,7 @@ const Addcar = () => {
                 <form className='flex flex-col gap-5 text-gray-500 text-sm mt-6 max-w-xl'>
                     <div className='mt-4 flex flex-row gap-2 items-center'>
                         <input ref={uploadImage} type="file" name="file" className='hidden' onChange={(e) => {
-                            setImage(URL.createObjectURL(e.target.files[0]));
+                            setImage(URL.createObjectURL(e.target.files[0])), setcarData({...carData,UserProfile:e.target.files[0]})
                         }} />
                         <img onClick={handleClick} src={image ? image : assets.upload_icon} alt="upload" className='h-14' />
                         <p>Upload a picture of your car</p>
@@ -75,29 +101,32 @@ const Addcar = () => {
                         <div className='flex flex-col'>
                             <label>Brand</label>
                             <input type="text"
-                                name="brand"
+                                name="Brand"
+                                value={carData.Brand}
                                 placeholder='e.g. BMW, Mercedes, Audi...'
                                 className='px-4 py-2 rounded-md border border-gray-300 outline-none'
+                                onChange={handleData}
+                                
                             />
                         </div>
                         <div className='flex flex-col'>
                             <label>Model</label>
                             <input type="text" name="model" placeholder='e.g. X5, X6...'
-                                className='px-4 py-2 rounded-md border border-gray-300 outline-none' />
+                                className='px-4 py-2 rounded-md border border-gray-300 outline-none' value={carData.Model}  onChange={handleData} />
                         </div>
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-3 gap-x-2'>
                         <div className='flex flex-col'>
                             <label>Year</label>
-                            <input type="number" name="year" className='px-4 py-2 rounded-md border border-gray-300 outline-none' />
+                            <input  onChange={handleData} value={carData.Year} type="number" name="year" className='px-4 py-2 rounded-md border border-gray-300 outline-none' />
                         </div>
                         <div className='flex flex-col'>
                             <label>Daily Price($)</label>
-                            <input type="number" name="dailyprice" className='px-4 py-2 rounded-md border border-gray-300 outline-none' />
+                            <input  onChange={handleData} value={carData.DailyPrice} type="number" name="dailyprice" className='px-4 py-2 rounded-md border border-gray-300 outline-none' />
                         </div>
                         <div className='flex flex-col'>
                             <label>Category</label>
-                            <select name="category" value={selectedCategory} onChange={handleChange} className='px-4 py-2 border border-gray-300 outline-none rounded-md'>/
+                            <select  name="category" value={selectedCategory} onChange={handleChange} className='px-4 py-2 border border-gray-300 outline-none rounded-md'>/
                                 <option value="">Select Category</option>
                                 {
                                     Category.map((catName, index) => {
@@ -138,8 +167,8 @@ const Addcar = () => {
                         </div>
                         <div className='flex flex-col'>
                             <label>Seating Capacity</label>
-                            <input type="number" name="seatingcapacity" placeholder='0'
-                                className='px-4 py-2 rounded-md border border-gray-300 outline-none' />
+                            <input  onChange={handleData} type="number" name="seatingcapacity" placeholder='0'
+                              value={carData.SeatingCapacity}  className='px-4 py-2 rounded-md border border-gray-300 outline-none' />
                         </div>
                     </div>
                     <div className='flex flex-col w-full'>
@@ -158,7 +187,7 @@ const Addcar = () => {
                      <div className='flex flex-col w-full'>
                             <label>Descrption</label>
                             <textarea type="text" name="descrption" placeholder='eg. descrption name'
-                                className='px-4 py-4 rounded-md border border-gray-300 outline-none' />
+                                onChange={handleData} className='px-4 py-4 rounded-md border border-gray-300 outline-none' value={carData.Descrption} />
                    </div>
                    <div className='flex flex-col'> 
                      <button className='bg-[#2563EB] text-white p-2 rounded-md cursor-pointer'>List your car</button>
