@@ -46,13 +46,13 @@ const Sidebar = () => {
                     <NavLink to='/owner/Dashboard' className="flex items-start md:items-center gap-3 p-2 hover:bg-gray-100 rounded">
                         <img src={assets.dashboardIcon} /> <p className='hidden md:block'>Dasboard</p>
                     </NavLink>
-                    <NavLink className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                    <NavLink to='/owner/add-car' className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
                         <img src={assets.addIcon} /> <p className='hidden md:block'>Add Car</p>
                     </NavLink>
-                    <NavLink className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                    <NavLink to='/owner/manage-cars' className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
                         <img src={assets.carIcon} /> <p className='hidden md:block'>Manage Cars</p>
                     </NavLink>
-                    <NavLink className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
+                    <NavLink to='/owner/manage-bookings' className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded">
                         <img src={assets.listIcon} /> <p className='hidden md:block'>Manage Bookings</p>
                     </NavLink>
                 </nav>

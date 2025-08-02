@@ -13,6 +13,8 @@ import Login from './Components/Login.jsx'
 import Layout from './Components/Owner/Layout.jsx'
 import Dashboard from './Pages/Owner/Dashboard.jsx'
 import Addcar from './Pages/Owner/Addcar.jsx'
+import ManageCars from './Pages/Owner/ManageCars.jsx'
+import ManageBookings from './Pages/Owner/ManageBookings.jsx'
 
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
         <Route path='/owner/' element={<Layout />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='add-car' element={<Addcar />} />
+          <Route path='manage-cars' element={<ManageCars/>}/>
+          <Route path='manage-bookings' element={<ManageBookings/>}/>
         </Route>
 
       </Routes>
