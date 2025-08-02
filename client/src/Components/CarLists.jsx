@@ -1,17 +1,11 @@
 import { CiSearch } from "react-icons/ci";
 import { CiFilter } from "react-icons/ci";
-import { useSelector, useDispatch } from "react-redux";
-import { getCars } from "../features/Cars/Car.js";
-import { use, useEffect } from "react";
+import { useGetCarQuery } from "../features/Cars/carsSlice.js";
 import CarData from "./CarData.jsx";
 
 const CarLists = () => {
-    const { cars } = useSelector((state) => state.car);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getCars())
-    }, [dispatch]);
+    const { data:cars } = useGetCarQuery();
+    
 
 
     return (

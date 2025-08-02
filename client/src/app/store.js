@@ -1,8 +1,10 @@
-import {configureStore} from '@reduxjs/toolkit';
-import carReducer from '../features/Cars/Car.js';
+import {configureStore}  from '@reduxjs/toolkit';
+import { carsSlice } from '../features/Cars/carsSlice.js';
 
-export default configureStore({
+export const store=configureStore({
     reducer:{
-        car: carReducer,
-    }
-})
+        [carsSlice.reducerPath]:carsSlice.reducer
+    },
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(carsSlice.middleware),
+})  

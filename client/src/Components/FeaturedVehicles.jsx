@@ -1,15 +1,15 @@
 import { useSelector,useDispatch } from 'react-redux'
-import { getCars } from '../features/Cars/Car.js'
+import { useGetCarQuery } from "../features/Cars/carsSlice.js";
 import {  useEffect } from 'react'
 import CarData from './CarData.jsx'
 
 
 const FeaturedVehicles = () => {
 
-    const {cars}=useSelector((state)=>state.car);
+    const {data:cars}=useGetCarQuery()
     //const dispatch=useDispatch();
 
-   
+   console.log(cars,"carData")
 
     return (
         <div className="bg-white">

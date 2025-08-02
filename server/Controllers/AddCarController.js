@@ -53,4 +53,23 @@ const AddCarInDB = async (req, res) => {
     }
 }
 
-module.exports = { AddCarInDB };
+const GetListOfCars=async(req,res)=>{
+    try{
+        const ListofCars= await AddCar.find({});
+        if(ListofCars){
+            res.status(200).json({
+                success:true,
+                message:"Details fetched successfully.",
+                Data:ListofCars
+            })
+        }
+    }catch(error){
+        res.status(400).json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+
+module.exports = { AddCarInDB,GetListOfCars };
