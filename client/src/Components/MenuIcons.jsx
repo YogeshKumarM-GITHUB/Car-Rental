@@ -1,6 +1,6 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
-const MenuIcons = () => {
+const MenuIcons = ({setshowLoginForm}) => {
     return (
         <>
             <NavLink to='/'>Home</NavLink>
@@ -19,7 +19,7 @@ const MenuIcons = () => {
                     <CiSearch />
                 </div>
             </div>
-            <button className='text-white bg-[#2563eb] px-4 py-2 rounded-md cursor-pointer  transition-all duration-300 ease-in-out hover:bg-purple-500'>Login</button>
+            <button onClick={()=>setshowLoginForm(true)} className='text-white bg-[#2563eb] px-4 py-2 rounded-md cursor-pointer  transition-all duration-300 ease-in-out hover:bg-purple-500'>Login</button>
         </>
     )
 }
