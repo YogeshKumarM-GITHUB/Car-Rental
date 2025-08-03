@@ -19,6 +19,7 @@ const uploadToCloudinary = async (fileBuffer) => {
 const AddCarInDB = async (req, res) => {
     try {
 
+        console.log(req.body);
         const imageFields = ['UserProfile'];
         const imageUrls = {};
 

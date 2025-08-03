@@ -21,7 +21,7 @@ const CarLists = () => {
             </div>
             {/* list of cars */}
             <div>
-                <p className="container mx-auto max-w-6xl mt-4 text-gray-600">Showing {cars.length} Cars</p>
+                <p className="container mx-auto max-w-6xl mt-4 text-gray-600">Showing {cars?.Data.length} Cars</p>
                 <CarData cars={cars} />
             </div>
         </div>

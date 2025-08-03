@@ -15,6 +15,8 @@ import Dashboard from './Pages/Owner/Dashboard.jsx'
 import Addcar from './Pages/Owner/Addcar.jsx'
 import ManageCars from './Pages/Owner/ManageCars.jsx'
 import ManageBookings from './Pages/Owner/ManageBookings.jsx'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -27,12 +29,13 @@ function App() {
   // }, []);
 
   const pathname = useLocation();
-  console.log(pathname)
+  //console.log(pathname)
   return (
     <div className='w-full bg-[#f1f5f9]'>
       {
         !pathname.pathname.includes('owner') && <Navbar />
       }
+      <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/cars' element={<Cars />} />

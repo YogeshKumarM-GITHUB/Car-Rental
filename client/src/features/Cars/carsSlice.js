@@ -10,7 +10,7 @@ export const carsSlice = createApi({
             query: (newCar) => ({
                 url: 'addcar',
                 method: 'POST',
-                body: newCar
+                body: newCar  
             })
         }),
         getCar:builder.query({
